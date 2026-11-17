@@ -1,0 +1,275 @@
+/* Ajustes de este deck sobre slidev-theme-hidalgo. */
+
+/* Colores del libro de validación real (paquete_validacion.py): gris para lo
+   que no se toca, amarillo para lo que se llena y azul del encabezado. Se
+   repiten aquí para que en la reunión se reconozcan al abrir el archivo. */
+:root {
+  --xl-gris: #EFEFEF;
+  --xl-amarillo: #FFF7D6;
+  --xl-encabezado: #1F3864;
+}
+
+/* El tema no da estilo a las listas: el reset de UnoCSS les quita la viñeta. */
+.slidev-layout ul {
+  list-style: disc;
+  margin-top: var(--space-3);
+  padding-left: 1.2em;
+}
+
+.slidev-layout ol {
+  list-style: decimal;
+  margin-top: var(--space-3);
+  padding-left: 1.4em;
+}
+
+.slidev-layout :is(ul, ol) li { margin: var(--space-1) 0; }
+
+.slidev-layout ul li::marker { color: var(--brand-secondary); }
+
+.slidev-layout ol li::marker {
+  color: var(--brand-secondary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Portada: los tres sujetos obligados bajo el título. */
+.slidev-layout .sujetos {
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  margin-top: var(--space-4);
+}
+
+/* Tabla del piloto: la columna del papel en el estudio respira más. */
+.slidev-layout .piloto table { font-size: 0.78rem; }
+.slidev-layout .piloto td:first-child { font-weight: var(--font-weight-semibold); color: var(--text-primary); }
+.slidev-layout .piloto td small { color: var(--text-muted); display: block; font-size: 0.66rem; }
+
+/* La frase que hay que llevarse de la lámina. */
+.slidev-layout .frase {
+  color: var(--text-primary);
+  font-size: 1.45rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.35;
+  margin: var(--space-6) 0 var(--space-5);
+  max-width: 34ch;
+}
+
+.slidev-layout .frase strong { color: var(--brand-primary); font-weight: var(--font-weight-bold); }
+
+/* Tres pasos en fila. */
+.pasos {
+  counter-reset: paso;
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.paso {
+  border-top: 3px solid var(--brand-secondary);
+  padding-top: var(--space-3);
+}
+
+.slidev-layout .paso p { font-size: 0.82rem; line-height: 1.5; margin: 0; }
+
+.slidev-layout .paso h3 {
+  font-size: 1.05rem;
+  margin: 0 0 var(--space-2);
+}
+
+.slidev-layout .paso h3::before {
+  color: var(--brand-secondary);
+  content: counter(paso) '  ';
+  counter-increment: paso;
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--font-weight-bold);
+}
+
+/* Regla de oro: lámina de una sola idea. */
+.regla {
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: 1.1fr 1fr;
+  margin-top: var(--space-5);
+}
+
+.slidev-layout .regla__titular {
+  color: var(--brand-primary);
+  font-size: 2.6rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  margin: 0 0 var(--space-4);
+}
+
+.slidev-layout .regla__porque { font-size: 1rem; line-height: 1.5; }
+
+.slidev-layout .regla__fuentes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slidev-layout .regla__fuentes li {
+  align-items: center;
+  border-bottom: 1px solid var(--border-default);
+  display: flex;
+  font-size: 0.92rem;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0.62rem 0;
+}
+
+.regla__fuentes li::before {
+  color: var(--alert-success);
+  content: '✓';
+  font-weight: var(--font-weight-bold);
+}
+
+.regla__fuentes li.regla__fuentes--ruts::before { color: var(--alert-warning); content: '!'; padding: 0 0.15em; }
+
+.slidev-layout .regla__fuentes small {
+  color: var(--text-muted);
+  display: block;
+  font-size: 0.72rem;
+}
+
+.slidev-layout .rotulo {
+  color: var(--text-secondary);
+  font-size: 0.74rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.06em;
+  margin: 0 0 var(--space-2);
+  text-transform: uppercase;
+}
+
+/* Ejemplo y errores lado a lado. */
+.ejemplo {
+  align-items: start;
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1.5fr 1fr;
+  margin-top: var(--space-4);
+}
+
+.slidev-layout .errores {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slidev-layout .errores li {
+  border-left: 3px solid var(--alert-error);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin: 0 0 var(--space-3);
+  padding: 0.35rem 0 0.35rem 0.7rem;
+}
+
+.slidev-layout .errores li strong { display: block; font-size: 0.86rem; }
+
+.slidev-layout .errores li.errores--bien { border-left-color: var(--alert-success); }
+
+/* Dos casos especiales. */
+.casos {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr 1fr;
+  margin-top: var(--space-4);
+}
+
+.caso {
+  background-color: var(--surface-app);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  border-top: var(--space-1) solid var(--brand-primary);
+  padding: var(--space-5) var(--space-6);
+}
+
+.slidev-layout .caso h3 { font-size: 1.2rem; margin: 0 0 var(--space-2); }
+.slidev-layout .caso p,
+.slidev-layout .caso li { font-size: 0.88rem; line-height: 1.5; }
+.slidev-layout .caso p { margin: var(--space-2) 0 0; }
+
+.slidev-layout .homonimos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-2);
+  list-style: none;
+  margin: var(--space-3) 0 0;
+  padding: 0;
+}
+
+.slidev-layout .homonimos li {
+  background-color: var(--surface-card);
+  border: 1px solid var(--brand-secondary);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 0.18rem 0.7rem;
+}
+
+.slidev-layout .cita-corta {
+  border-left: 3px solid var(--brand-secondary);
+  color: var(--text-primary);
+  font-style: italic;
+  padding-left: var(--space-3);
+}
+
+/* Copiloto: qué hace. */
+.slidev-layout .entradilla {
+  font-size: 0.9rem;
+  margin: var(--space-4) 0 0;
+  max-width: 60ch;
+}
+
+.slidev-layout .hgo-tarjeta__t strong { display: block; font-size: 0.8rem; margin-bottom: 0.2rem; }
+
+.slidev-layout .hgo-tarjeta__n { font-size: 1.5rem; }
+
+/* Copiloto: así conversa. */
+.conversa {
+  align-items: start;
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: 1.25fr 1fr;
+  margin-top: var(--space-4);
+}
+
+.slidev-layout .noHace {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slidev-layout .noHace li {
+  border-bottom: 1px solid var(--border-default);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  margin: 0;
+  padding: var(--space-3) 0;
+}
+
+.slidev-layout .noHace li strong { display: block; font-size: 0.88rem; }
+
+/* Siguientes pasos. */
+.slidev-layout .hgo-trayectos { margin-top: var(--space-4); }
+
+.slidev-layout .hgo-trayecto--hoy { border-left-color: var(--brand-secondary); background-color: var(--xl-amarillo); }
+
+.slidev-layout .pide {
+  font-size: 0.74rem;
+  margin: 0;
+}
+
+/* Cierre. */
+.slidev-layout .hgo-cierre .cierre__sub { font-size: 1rem; max-width: 46ch; }
+
+/* Aclaración discreta: pantalla ilustrativa. */
+.slidev-layout .aclaracion {
+  color: var(--text-muted);
+  font-size: 0.66rem;
+  font-style: italic;
+  margin: var(--space-3) 0 0;
+}
+
+/* Lámina 3: ejemplos del tipo de pregunta, al pie. */
+.slidev-layout .ejemplos-pregunta { margin-top: var(--space-6); }

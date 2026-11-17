@@ -1,0 +1,19 @@
+{
+  "name": "ruts-piloto-validacion-2026-11-17",
+  "private": true,
+  "type": "module",
+  "description": "Reunión con Secretaría de Contraloría, Omitlán de Juárez y Mineral del Chico: llenado del libro de validación y el copiloto de captura del RUTS",
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^53.0.0",
+    "slidev-theme-hidalgo": "file:../slidev-theme-hidalgo",
+    "vue": "^3.5.43"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.63.0"
+  }
+}
